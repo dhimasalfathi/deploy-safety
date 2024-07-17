@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('front') }}">Video Upload</a></li>
+                <li><a href="{{ url_for('webcam') }}">Webcam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Object Detection App</h1>
+
+        {% if active_page == "home" %}
+        <section id="home" class="content">
+            <h2>Welcome to our Object Detection App</h2>
+            <p>Use our advanced AI to detect objects in videos or through your webcam.</p>
+        </section>
+        {% elif active_page == "webcam" %}
+        <section id="webcam" class="content">
+            <h2>Webcam Object Detection</h2>
+            <div id="webcam-container">
+                <img src="{{ url_for('webapp') }}" alt="Webcam stream">
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Object Detection App. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
